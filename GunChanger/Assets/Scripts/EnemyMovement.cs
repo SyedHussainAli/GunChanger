@@ -58,6 +58,8 @@ public class EnemyMovement : MonoBehaviour
         float spawnPosZ = Random.Range(-spawnRange, spawnRange);
         Vector3 randomRange = new Vector3(spawnPosX, 0.6f, spawnPosZ);
 
+
+
         return randomRange;
     }
     private void OnCollisionEnter(Collision collision)
