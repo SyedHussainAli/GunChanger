@@ -44,12 +44,13 @@ public class MatrixUsingArrays
     public void SetMatrix(int[,] arrayout)
     {
         array = arrayout;
-
+        OnMatrixUpdated();
     }
     public void SetElement(int row ,int col,int value)
     {
         if(row< array.GetLength(0)&&col< array.GetLength(1))
         array[row, col] = value;
+        OnMatrixUpdated();
     }
 
     public int GetElement(int row,int col)
@@ -63,6 +64,7 @@ public class MatrixUsingArrays
         {
             array[row, i] = arrayy[i];
         }
+       
     }
     public void SetCol(int col, int[] arrayy)
     {
@@ -70,6 +72,7 @@ public class MatrixUsingArrays
         {
             array[i,col] = arrayy[i];
         }
+        OnMatrixUpdated();
     }
 
     public void SwapRows(int row1,int row2)
@@ -122,7 +125,7 @@ public class MatrixUsingArrays
                 array[i, j] = number;
             }
         }
-
+        OnMatrixUpdated();
     }
     public void SetRow(int row,int number)
     {
@@ -130,6 +133,7 @@ public class MatrixUsingArrays
         {
             array[row, i] = number;
         }
+        OnMatrixUpdated();
 
     }
     public void SetCol(int col, int number)
@@ -138,7 +142,7 @@ public class MatrixUsingArrays
         {
             array[i, col] = number;
         }
-
+        OnMatrixUpdated();
     }
     public void SetDiagonal(int num)
     {
@@ -146,6 +150,7 @@ public class MatrixUsingArrays
         {
             array[i, i] = num;
         }
+        OnMatrixUpdated();
     }
     public void SetInverseDiagonal(int num)
     {
@@ -153,6 +158,7 @@ public class MatrixUsingArrays
         {
             array[i, array.GetLength(0)-1-i] = num;
         }
+        OnMatrixUpdated();
     }
 
     public bool isRowSame(int rowNum)
@@ -279,5 +285,10 @@ public class MatrixUsingArrays
         int determinentt;
         determinentt = (Ary[0, 0] * Ary[1, 1]) - (Ary[0, 1] * Ary[1, 0]);
         return determinentt;
+    }
+
+    public virtual void OnMatrixUpdated()
+    {
+
     }
 }
